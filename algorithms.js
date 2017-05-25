@@ -24,4 +24,12 @@ function double(numbers) {
 };
 //invoke function with test array
 double(numbers);
+
+//more clean and elegant solution to above:
+function double([ number, ...rest] = numbers) {
+    if (!number) {
+        return [];
+    }
+    return [number * 2, ...double(rest)];
+};
 /* -------------------- */
